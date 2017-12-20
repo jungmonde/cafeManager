@@ -17,6 +17,7 @@
 	<mvc:annotation-driven/>
 	<!-- resources 필요여부 확인 해야함 -->
 	<mvc:resources location="/resources/**" mapping="/resources/"/>
+	<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/" />
 	<!-- component-scan을 뒤에서 앞으로 빼놓음 -->
 	<context:component-scan base-package="kr.co.cafemanager.*"/>
 	<!-- p태크를 사용하면 beans:property를 만들 필요가 없다. -->
@@ -24,5 +25,5 @@
 	p:prefix="/"
 	p:suffix=".jsp"
 	/>
-	
+
 </beans>
