@@ -25,5 +25,16 @@
 	p:prefix="/"
 	p:suffix=".jsp"
 	/>
+	<!-- Tiles configuration -->
+	<bean id="tilesViewResolver"
+    class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+    p:requestContextAttribute="requestContext"
+    p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView"
+    />
+    <bean
+    id="tilesConfigurer"
+    class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"
+    p:definitions="/WEB-INF/views/tiles.xml"
+    />
 
 </beans>
