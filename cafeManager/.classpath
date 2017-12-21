@@ -33,5 +33,9 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="D:/Others/mysql-connector-java-5.1.45/mysql-connector-java-5.1.45/mysql-connector-java-5.1.45-bin.jar"/>
+>>>>>>> branch 'master' of https://github.com/kkimm87/cafeManager.git
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
