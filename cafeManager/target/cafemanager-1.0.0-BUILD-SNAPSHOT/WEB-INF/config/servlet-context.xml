@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+<!--
+ 2017.12.20
+	작성자 : 김영섭
+	Servlet context 생성
+ -->
+ <!-- annotation-config 와 annotation-driven이 중복인지확인 히야함 -->
+	<context:annotation-config/>
+	<mvc:annotation-driven/>
+	<!-- resources 필요여부 확인 해야함 -->
+	<mvc:resources location="/resources/**" mapping="/resources/"/>
+	<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/" />
+	<!-- component-scan을 뒤에서 앞으로 빼놓음 -->
+	<context:component-scan base-package="kr.co.cafemanager.*"/>
+	<!-- p태크를 사용하면 beans:property를 만들 필요가 없다. -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+	p:prefix="/"
+	p:suffix=".jsp"
+	/>
+	<!-- Tiles configuration -->
+	<bean id="tilesViewResolver"
+    class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+    p:requestContextAttribute="requestContext"
+    p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView"
+    />
+    <bean
+    id="tilesConfigurer"
+    class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"
+    p:definitions="/WEB-INF/views/tiles.xml"
+    />
+
+</beans>
